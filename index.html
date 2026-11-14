@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOP SECRET: Operation Christmas Wishlist 2026</title>
+<meta name="description" content="CLASSIFIED. Authorized Monito/Monita personnel only.">
+<meta name="theme-color" content="#2a140d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wood:#2a140d;
+    --wood2:#4a2418;
+    --manila:#e3cb94;
+    --manila-lt:#efdcab;
+    --paper:#f1e3bd;
+    --ink:#2b2118;
+    --red:#a82a2a;
+    --stain:138,75,28;
+    --brass:#b08a3e;
+    --olive:#6b6a3a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;min-height:100vh;
+    font-family:'Courier Prime','Courier New',monospace;
+    color:var(--ink);line-height:1.5;
+    -webkit-text-size-adjust:100%;
+    background:
+      radial-gradient(ellipse 70% 45% at 12% 0%,rgba(255,185,95,.28),transparent 65%),
+      repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 2px,transparent 2px 11px),
+      linear-gradient(#3d1e12,#1a0b07);
+    background-attachment:fixed;
+  }
+  body::after{ /* lamp-lit vignette */
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:40;
+    background:radial-gradient(ellipse at 40% 40%,transparent 45%,rgba(0,0,0,.72) 100%);
+  }
+  h1,h2,h3,.typewriter{font-family:'Special Elite','Courier Prime',monospace}
+
+  .wrap{max-width:720px;margin:0 auto;padding:18px 14px 60px;position:relative;z-index:1}
+
+  /* ================= COVER ================= */
+  #cover{
+    position:fixed;inset:0;z-index:30;overflow:hidden;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    background:
+      radial-gradient(ellipse 60% 45% at 14% 4%,rgba(255,190,100,.38),transparent 62%),
+      repeating-linear-gradient(90deg,rgba(0,0,0,.16) 0 2px,transparent 2px 12px),
+      linear-gradient(#4a2418,#1c0c07);
+    background-size:cover;background-position:45% center;
+  }
+  #cover[hidden]{display:none}
+  #cover::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 45% 45%,transparent 40%,rgba(0,0,0,.78) 100%);
+  }
+  /* lamp */
+  .lamp{
+    position:absolute;top:-40px;left:-30px;width:170px;height:120px;border-radius:0 0 90px 90px;
+    background:linear-gradient(#0f1a12,#050805);box-shadow:0 20px 60px 20px rgba(255,185,95,.18);
+  }
+  .lamp::after{content:"";position:absolute;left:62px;top:110px;width:14px;height:70px;background:linear-gradient(90deg,#6c5224,#c9a24f,#6c5224)}
+
+  .folder{
+    position:relative;z-index:2;
+    width:min(82vw,440px);aspect-ratio:4/5;
+    transform:rotate(-4deg);
+    transition:transform .8s cubic-bezier(.5,0,.2,1),opacity .8s;
+    filter:drop-shadow(0 18px 24px rgba(0,0,0,.7));
+    animation:float 5s ease-in-out infinite;
+    background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;
+  }
+  @keyframes float{0%,100%{translate:0 0}50%{translate:0 -6px}}
+  .folder .sheet{ /* papers poking out */
+    position:absolute;border-radius:3px;background:#efe2bb;border:1px solid #bda770;
+  }
+  .folder .s1{inset:-3% -5% 4% 3%;transform:rotate(3deg)}
+  .folder .s2{inset:-1% -3% 2% 1%;transform:rotate(1.5deg);background:#f6efd2}
+  .folder .tabnote{position:absolute;right:-4%;top:34%;width:10%;height:22%;background:#f1e6a8;border:1px solid #cdbf70;transform:rotate(2deg)}
+  .folder .front{
+    position:absolute;inset:0;border-radius:4px;overflow:hidden;
+    border:1px solid #b99c5b;
+    background:
+      radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.25),transparent 60%),
+      linear-gradient(160deg,#ecd6a0,#d9bf82 70%,#c9ac6c);
+    box-shadow:inset 0 0 40px rgba(110,70,20,.35);
+  }
+  .stain{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle,rgba(var(--stain),.12) 0 52%,rgba(var(--stain),.5) 60%,rgba(var(--stain),.16) 68%,transparent 72%);
+    mix-blend-mode:multiply;
+  }
+  .st-fill{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle,rgba(var(--stain),.5),rgba(var(--stain),.25) 60%,transparent 72%);
+    mix-blend-mode:multiply;
+  }
+  .ts-box{
+    position:absolute;left:12%;top:23%;width:70%;
+    border:3px solid var(--ink);outline:2px solid var(--ink);outline-offset:-9px;
+    text-align:center;padding:6px 4px 3px;
+    font-family:'Oswald','Impact',sans-serif;font-weight:700;color:var(--ink);
+    font-size:clamp(1.5rem,8vw,2.6rem);letter-spacing:.06em;line-height:1.1;
+    transform:rotate(-5deg);
+    mix-blend-mode:multiply;opacity:.9;
+    animation:stampIn .7s cubic-bezier(.2,1.6,.4,1) .2s both;
+  }
+  @keyframes stampIn{from{scale:2.6;opacity:0}to{scale:1;opacity:.9}}
+  .cover-meta{
+    position:absolute;left:10%;right:10%;bottom:7%;text-align:center;
+    font-family:'Special Elite',monospace;color:rgba(43,33,24,.78);
+    font-size:clamp(.62rem,2.6vw,.8rem);letter-spacing:.12em;text-transform:uppercase;
+    transform:rotate(-1deg);
+  }
+  .clip{position:absolute;width:11%;height:auto;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35))}
+  .ink-stamp{position:absolute;mix-blend-mode:multiply}
+
+  .hint{
+    position:relative;z-index:3;margin:26px 0 0;
+    font-family:'Special Elite',monospace;color:#f3d89a;
+    letter-spacing:.2em;font-size:.85rem;text-transform:uppercase;text-align:center;
+    background:none;border:0;cursor:pointer;
+    text-shadow:0 0 10px rgba(255,190,90,.6);
+    animation:blink 1.8s ease-in-out infinite;padding:6px 10px;
+  }
+  @keyframes blink{50%{opacity:.35}}
+  .cover-title{
+    position:relative;z-index:3;margin:0 0 20px;text-align:center;
+    font-family:'Special Elite',monospace;color:#d8bf86;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  }
+
+  #cover.opening .folder{transform:rotate(0deg) scale(1.9);opacity:0;animation:none}
+  #cover.opening .hint,#cover.opening .cover-title{opacity:0;transition:opacity .3s}
+
+  /* photo mode: user supplied images/cover.jpg */
+  #cover.photo .folder,#cover.photo .lamp,#cover.photo .cover-title{display:none}
+  #cover.photo{justify-content:flex-end;padding-bottom:9vh}
+  #cover.photo .hint{margin:0;background:rgba(10,5,3,.55);border:1px solid #b08a3e;padding:12px 18px}
+  #cover.photo .photo-title{display:block}
+  .photo-title{
+    display:none;position:relative;z-index:3;margin:0 0 14px;text-align:center;
+    font-family:'Special Elite',monospace;color:#f3d89a;font-size:.8rem;letter-spacing:.25em;
+    text-shadow:0 2px 8px #000;
+  }
+
+  /* ================= DOCUMENT ================= */
+  .doc{
+    position:relative;overflow:hidden;
+    padding:26px 20px 30px;border-radius:3px;
+    border:1px solid #b99c5b;
+    background:
+      radial-gradient(circle at 88% 6%,rgba(var(--stain),.22) 0 3.5%,transparent 4.5%),
+      radial-gradient(circle at 7% 40%,rgba(var(--stain),.14) 0 6%,transparent 7%),
+      radial-gradient(circle at 94% 72%,rgba(var(--stain),.16) 0 4%,transparent 5%),
+      radial-gradient(ellipse at 30% 0%,rgba(255,255,255,.3),transparent 55%),
+      linear-gradient(170deg,var(--manila-lt),var(--manila));
+    box-shadow:0 14px 34px rgba(0,0,0,.65),inset 0 0 70px rgba(110,70,20,.32);
+  }
+  .doc::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:10px;
+    background:repeating-linear-gradient(90deg,var(--ink) 0 14px,#4a3526 14px 28px);
+  }
+  .topbar{
+    display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;
+    font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-top:10px;color:#5b4a36;
+  }
+  .banner{
+    text-align:center;background:var(--ink);color:var(--manila-lt);
+    font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.35em;
+    padding:6px 0;margin:14px -20px 18px;font-size:.95rem;
+  }
+  .seal{display:block;margin:6px auto 4px;width:120px;height:120px;filter:drop-shadow(1px 2px 2px rgba(0,0,0,.3))}
+  .agency{text-align:center;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#5a3b1c;font-weight:700}
+
+  h1{
+    text-align:center;margin:12px 0 4px;
+    font-size:clamp(1.5rem,7vw,2.3rem);line-height:1.1;
+    color:var(--ink);text-transform:uppercase;letter-spacing:.03em;
+  }
+  h1 .ts{
+    display:table;margin:0 auto 10px;border:3px solid var(--ink);outline:2px solid var(--ink);outline-offset:-7px;
+    padding:3px 16px;font-family:'Oswald',sans-serif;font-size:.6em;letter-spacing:.2em;
+  }
+  .docno{text-align:center;font-size:.8rem;letter-spacing:.12em;color:#5b4a36}
+
+  .stamp{
+    display:inline-block;border:4px double var(--red);color:var(--red);
+    padding:4px 14px;font-family:'Special Elite',monospace;
+    font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase;
+    transform:rotate(-8deg);opacity:.88;mix-blend-mode:multiply;
+    animation:stampIn2 .6s cubic-bezier(.2,1.6,.4,1) both;
+  }
+  @keyframes stampIn2{from{transform:rotate(-8deg) scale(3);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:.88}}
+  .stamp-row{text-align:center;margin:16px 0 8px}
+
+  table.meta{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+  table.meta td{border:1px dashed #9c8556;padding:7px 9px;vertical-align:top}
+  table.meta td:first-child{
+    width:42%;background:rgba(90,59,28,.1);font-weight:700;
+    text-transform:uppercase;font-size:.74rem;letter-spacing:.06em;
+  }
+  .hl{color:var(--red);font-weight:700}
+
+  .redact{
+    background:var(--ink);color:var(--ink);padding:0 4px;border-radius:2px;cursor:pointer;
+    transition:background .3s,color .3s;user-select:none;
+  }
+  .redact.open{background:transparent;color:var(--red);user-select:auto}
+
+  .brief{margin:22px 0;padding:16px;border-left:5px solid var(--brass);background:rgba(176,138,62,.16)}
+  .brief h2{margin:0 0 8px;font-size:1.15rem;color:#5a3b1c}
+  .brief p{margin:.5em 0}
+  .fade{opacity:0;transform:translateY(8px);animation:up .7s ease forwards}
+  .d1{animation-delay:.3s}.d2{animation-delay:.7s}.d3{animation-delay:1.2s}.d4{animation-delay:1.7s}
+  @keyframes up{to{opacity:1;transform:none}}
+
+  .btn{
+    display:block;width:100%;
+    font-family:'Special Elite','Courier Prime',monospace;
+    font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--ink);color:var(--manila-lt);
+    border:3px solid #120c07;border-radius:3px;
+    padding:16px 10px;cursor:pointer;text-align:center;text-decoration:none;
+    box-shadow:0 5px 0 #120c07;
+    transition:transform .1s,box-shadow .1s,background .2s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:hover{background:#43331f}
+  .btn:active{transform:translateY(4px);box-shadow:0 1px 0 #120c07}
+  .btn.pulse{animation:pulse 2s infinite}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 5px 0 #120c07,0 0 0 0 rgba(168,42,42,.5)}
+    50%{box-shadow:0 5px 0 #120c07,0 0 0 10px rgba(168,42,42,0)}
+  }
+  .btn.red{background:var(--red);border-color:#5e1414;box-shadow:0 5px 0 #5e1414}
+  .btn.red:hover{background:#8d2020}
+  .btn.red:active{box-shadow:0 1px 0 #5e1414}
+  .btn.ghost{background:transparent;color:var(--ink);font-size:.85rem;padding:10px;box-shadow:none;border-width:2px}
+  .btn[aria-disabled="true"]{background:#8d8470;border-color:#5b5444;box-shadow:0 5px 0 #5b5444;pointer-events:none}
+
+  .disclaimer{margin-top:26px;padding-top:14px;border-top:2px solid var(--ink);font-size:.72rem;color:#5b4a36;font-style:italic}
+  .footer-note{text-align:center;font-size:.7rem;letter-spacing:.15em;margin-top:18px;color:#6e5b43}
+
+  .view[hidden]{display:none}
+  main.view{animation:viewIn .6s ease}
+  @keyframes viewIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* target cards */
+  .targets{display:grid;gap:22px;margin-top:20px}
+  .card{
+    position:relative;background:#f7ecc8;border:2px solid var(--ink);
+    padding:16px 14px 18px;border-radius:3px;
+    box-shadow:4px 4px 0 rgba(43,33,24,.4);
+    opacity:0;transform:translateY(16px);animation:up .7s ease forwards;
+  }
+  .card::before{
+    content:"";position:absolute;top:-12px;right:22px;width:18px;height:44px;
+    border:3px solid #8a8f94;border-radius:10px;border-bottom-color:transparent;transform:rotate(8deg);
+  }
+  .card-head{
+    display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
+    border-bottom:2px dashed #9c8556;padding-bottom:8px;margin-bottom:12px;
+  }
+  .tid{font-family:'Special Elite',monospace;font-size:1.05rem;letter-spacing:.08em}
+  .prio{font-size:.7rem;letter-spacing:.1em;font-weight:700;text-transform:uppercase;padding:3px 8px;border:2px solid;border-radius:2px}
+  .prio.p1{color:var(--red);border-color:var(--red)}
+  .prio.p2{color:#8a6d10;border-color:#8a6d10}
+  .prio.p3{color:var(--olive);border-color:var(--olive)}
+  .imgbox{
+    position:relative;width:100%;aspect-ratio:4/3;background:#e4d5a8;
+    border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center;
+  }
+  .imgbox img{width:100%;height:100%;object-fit:contain;background:#fff;display:block}
+  .imgbox .ph{
+    font-family:'Special Elite',monospace;text-align:center;padding:10px;font-size:.95rem;letter-spacing:.1em;
+    background:repeating-linear-gradient(45deg,#d6c48f 0 12px,#e4d5a8 12px 24px);
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  }
+  .imgbox .photo-tag{position:absolute;left:6px;bottom:6px;background:var(--ink);color:var(--manila-lt);font-size:.62rem;letter-spacing:.1em;padding:2px 6px}
+  .card h3{margin:14px 0 6px;font-size:1.25rem;color:#5a3b1c;text-transform:uppercase;line-height:1.15}
+  .card p.desc{margin:.3em 0 .8em;font-size:.9rem}
+  .price{font-size:.85rem;margin-bottom:14px}
+  .price b{color:var(--red)}
+  .card .btn{font-size:.95rem;padding:13px 8px}
+  .stat{display:flex;gap:6px;flex-wrap:wrap;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;margin:10px 0 0}
+  .stat span{background:rgba(90,59,28,.14);padding:3px 7px}
+
+  /* budget notice */
+  .notice{
+    margin:20px 0;border:3px solid var(--red);background:rgba(168,42,42,.08);
+    position:relative;
+  }
+  .notice-head{
+    background:repeating-linear-gradient(-45deg,var(--red) 0 14px,#7d1c1c 14px 28px);
+    color:#fff;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;text-align:center;padding:8px 10px;font-size:1rem;
+    text-shadow:0 1px 2px rgba(0,0,0,.6);
+  }
+  .notice-body{padding:12px 14px;font-size:.88rem}
+  .notice-body p{margin:0}
+  .notice-body b{color:var(--red)}
+
+  /* specifications */
+  .specs{margin:4px 0 14px;border:2px solid var(--ink);background:rgba(90,59,28,.06)}
+  .specs-title{
+    background:var(--ink);color:var(--manila-lt);font-family:'Oswald',sans-serif;
+    letter-spacing:.2em;font-size:.75rem;padding:4px 10px;text-transform:uppercase;
+  }
+  .specs table{width:100%;border-collapse:collapse;font-size:.85rem}
+  .specs td{padding:6px 10px;border-top:1px dashed #9c8556;vertical-align:top}
+  .specs tr:first-child td{border-top:0}
+  .specs td:first-child{
+    width:38%;font-weight:700;text-transform:uppercase;font-size:.74rem;letter-spacing:.06em;color:#5a3b1c;
+  }
+
+  /* access overlay */
+  #scan{
+    position:fixed;inset:0;z-index:100;background:rgba(14,7,4,.95);
+    display:none;align-items:center;justify-content:center;flex-direction:column;
+    color:#f0c36a;font-family:'Courier Prime',monospace;text-align:center;padding:20px;
+  }
+  #scan.on{display:flex}
+  #scan .line{font-size:1rem;letter-spacing:.15em;margin:4px 0;min-height:1.4em}
+  .bar{width:min(300px,80vw);height:12px;border:2px solid #f0c36a;margin-top:16px}
+  .bar i{display:block;height:100%;width:0;background:#f0c36a;transition:width 1.4s linear}
+  #scan.go .bar i{width:100%}
+  #scan .granted{color:#fff;background:var(--red);padding:6px 14px;margin-top:16px;display:none;letter-spacing:.2em}
+  #scan.done .granted{display:block}
+
+  @media (min-width:640px){
+    .doc{padding:34px 36px 40px}
+    .banner{margin-left:-36px;margin-right:-36px}
+    .targets{gap:28px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .fade,.card{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- SVG symbols reused on the cover -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="paperclip" viewBox="0 0 30 80">
+      <path d="M8 62 V16 a7 7 0 0 1 14 0 V64 a11 11 0 0 1 -22 0 V22" fill="none" stroke="#9aa1a8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M8 62 V16 a7 7 0 0 1 14 0 V64" fill="none" stroke="#e6eaee" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+    </symbol>
+    <path id="arcT" d="M 18,60 A 42,42 0 0 1 102,60"/>
+    <path id="arcB" d="M 14,60 A 46,46 0 0 0 106,60"/>
+  </defs>
+</svg>
+
+<!-- ============ COVER (shown first) ============ -->
+<section id="cover" class="view" role="button" tabindex="0" aria-label="Tap to open the classified file">
+  <div class="lamp"></div>
+  <div class="cover-title">C.I.A. · Christmas Intelligence Agency</div>
+  <div class="photo-title">OPERATION CHRISTMAS WISHLIST 2026 · DOC NO. CW-2026-001</div>
+
+  <button class="folder" id="folderBtn" type="button" aria-label="Open the classified file" tabindex="-1">
+    <div class="sheet s1"></div>
+    <div class="sheet s2"></div>
+    <div class="tabnote"></div>
+    <div class="front">
+      <!-- coffee stains -->
+      <div class="stain" style="left:20%;top:14%;width:18%;aspect-ratio:1"></div>
+      <div class="st-fill" style="left:56%;top:40%;width:26%;aspect-ratio:1.1"></div>
+      <div class="stain" style="left:44%;top:52%;width:9%;aspect-ratio:1"></div>
+      <div class="st-fill" style="left:14%;top:66%;width:24%;aspect-ratio:1.2"></div>
+      <div class="stain" style="left:36%;top:78%;width:8%;aspect-ratio:1"></div>
+      <div class="st-fill" style="left:62%;top:70%;width:6%;aspect-ratio:1"></div>
+
+      <!-- stamps -->
+      <svg class="ink-stamp" style="right:6%;top:5%;width:22%;transform:rotate(8deg);opacity:.55" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="56" fill="none" stroke="#2b2118" stroke-width="2.5"/>
+        <circle cx="60" cy="60" r="34" fill="none" stroke="#2b2118" stroke-width="1.5"/>
+        <text font-family="Courier New,monospace" font-size="11" font-weight="700" fill="#2b2118" letter-spacing="1.5"><textPath href="#arcT" startOffset="50%" text-anchor="middle">CHRISTMAS INTELLIGENCE</textPath></text>
+        <text font-family="Courier New,monospace" font-size="11" font-weight="700" fill="#2b2118" letter-spacing="2"><textPath href="#arcB" startOffset="50%" text-anchor="middle">AGENCY · 2026</textPath></text>
+        <polygon points="60,40 50,58 70,58" fill="#2b2118"/><polygon points="60,50 46,70 74,70" fill="#2b2118"/><rect x="57" y="70" width="6" height="6" fill="#2b2118"/>
+      </svg>
+      <svg class="ink-stamp" style="right:3%;top:67%;width:24%;transform:rotate(-6deg);opacity:.75" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="56" fill="none" stroke="#a82a2a" stroke-width="3"/>
+        <circle cx="60" cy="60" r="34" fill="none" stroke="#a82a2a" stroke-width="1.5"/>
+        <text font-family="Courier New,monospace" font-size="11" font-weight="700" fill="#a82a2a" letter-spacing="1.5"><textPath href="#arcT" startOffset="50%" text-anchor="middle">OFFICIAL · CLASSIFIED</textPath></text>
+        <text font-family="Courier New,monospace" font-size="11" font-weight="700" fill="#a82a2a" letter-spacing="2"><textPath href="#arcB" startOffset="50%" text-anchor="middle">DO NOT OPEN EARLY</textPath></text>
+        <polygon points="60,40 50,58 70,58" fill="#a82a2a"/><polygon points="60,50 46,70 74,70" fill="#a82a2a"/><rect x="57" y="70" width="6" height="6" fill="#a82a2a"/>
+      </svg>
+      <svg class="ink-stamp" style="right:2%;top:46%;width:26%;transform:rotate(-12deg);opacity:.5" viewBox="0 0 130 60">
+        <rect x="3" y="3" width="124" height="54" fill="none" stroke="#2b2118" stroke-width="2.5"/>
+        <text x="65" y="24" text-anchor="middle" font-family="Courier New,monospace" font-size="11" font-weight="700" fill="#2b2118">RECEIVED</text>
+        <text x="65" y="42" text-anchor="middle" font-family="Courier New,monospace" font-size="9" fill="#2b2118">CW-2026 · XMAS DIV.</text>
+      </svg>
+      <svg class="ink-stamp" style="left:5%;bottom:8%;width:34%;transform:rotate(-4deg);opacity:.7" viewBox="0 0 150 70">
+        <rect x="3" y="3" width="144" height="64" fill="none" stroke="#a82a2a" stroke-width="2.5"/>
+        <text x="75" y="22" text-anchor="middle" font-family="Courier New,monospace" font-size="10" font-weight="700" fill="#a82a2a">FOR MONITO / MONITA</text>
+        <text x="75" y="38" text-anchor="middle" font-family="Courier New,monospace" font-size="10" font-weight="700" fill="#a82a2a">EYES ONLY</text>
+        <text x="75" y="55" text-anchor="middle" font-family="Courier New,monospace" font-size="9" fill="#a82a2a">REF: CW-2026-001</text>
+      </svg>
+
+      <div class="ts-box">TOP SECRET</div>
+      <div class="cover-meta">Operation Christmas Wishlist 2026<br>Doc No. CW-2026-001</div>
+
+      <!-- paper clips -->
+      <svg class="clip" style="left:17%;top:51%;transform:rotate(-58deg)"><use href="#paperclip"/></svg>
+      <svg class="clip" style="left:27%;top:56%;transform:rotate(-40deg)"><use href="#paperclip"/></svg>
+      <svg class="clip" style="left:38%;top:52%;transform:rotate(-70deg)"><use href="#paperclip"/></svg>
+      <svg class="clip" style="left:63%;top:55%;transform:rotate(20deg)"><use href="#paperclip"/></svg>
+    </div>
+  </button>
+
+  <button class="hint" id="hintBtn" type="button">▼ Tap the file to open ▼</button>
+</section>
+
+<div id="scan" role="status" aria-live="polite">
+  <div class="line" id="scanLine1">VERIFYING CLEARANCE...</div>
+  <div class="line" id="scanLine2">SCANNING FOR NAUGHTY LIST CONFLICTS...</div>
+  <div class="bar"><i></i></div>
+  <div class="granted">ACCESS GRANTED</div>
+</div>
+
+<div class="wrap">
+
+  <!-- ============ BRIEFING (landing) ============ -->
+  <main id="landing" class="view" hidden>
+    <div class="doc">
+      <div class="topbar">
+        <span>DOC NO. CW-2026-001</span>
+        <span>FILE: XMAS/MONITO/2026</span>
+      </div>
+      <div class="banner">TOP SECRET</div>
+
+      <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Christmas Intelligence Agency seal">
+        <defs>
+          <path id="arcTop" d="M 30,100 A 70,70 0 0 1 170,100"/>
+          <path id="arcBot" d="M 22,100 A 78,78 0 0 0 178,100"/>
+        </defs>
+        <circle cx="100" cy="100" r="96" fill="#2b2118"/>
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#efdcab" stroke-width="2"/>
+        <circle cx="100" cy="100" r="56" fill="#efdcab"/>
+        <circle cx="100" cy="100" r="52" fill="none" stroke="#2b2118" stroke-width="2"/>
+        <text font-family="Courier New,monospace" font-size="15" font-weight="700" fill="#efdcab" letter-spacing="2">
+          <textPath href="#arcTop" startOffset="50%" text-anchor="middle">CHRISTMAS INTELLIGENCE</textPath>
+        </text>
+        <text font-family="Courier New,monospace" font-size="15" font-weight="700" fill="#efdcab" letter-spacing="3">
+          <textPath href="#arcBot" startOffset="50%" text-anchor="middle" side="right">★ AGENCY ★</textPath>
+        </text>
+        <polygon points="100,62 80,92 120,92" fill="#2b2118"/>
+        <polygon points="100,76 74,110 126,110" fill="#43331f"/>
+        <polygon points="100,92 68,128 132,128" fill="#2b2118"/>
+        <rect x="95" y="128" width="10" height="10" fill="#5a3b1e"/>
+        <circle cx="100" cy="62" r="4" fill="#a82a2a"/>
+        <circle cx="90" cy="104" r="3" fill="#a82a2a"/>
+        <circle cx="112" cy="116" r="3" fill="#a82a2a"/>
+      </svg>
+      <div class="agency">C.I.A. – Christmas Intelligence Agency</div>
+
+      <h1><span class="ts">TOP SECRET</span>Operation Christmas Wishlist 2026</h1>
+      <div class="docno">DOCUMENT NO. CW-2026-001</div>
+
+      <div class="stamp-row"><span class="stamp">Strictly Confidential</span></div>
+
+      <table class="meta">
+        <tr><td>Classification</td><td class="hl">STRICTLY CONFIDENTIAL</td></tr>
+        <tr><td>Authorized Personnel</td><td>ASSIGNED MONITO/MONITA ONLY</td></tr>
+        <tr><td>Agent Codename</td><td>TEACHER C </td></tr>
+        <tr><td>Real Identity</td><td><span class="redact" id="identity" tabindex="0" role="button" aria-label="Redacted. Tap to reveal.">████████████</span> <small>(tap to attempt declassification)</small></td></tr>
+        <tr><td>Operation Status</td><td class="hl">AWAITING PROCUREMENT</td></tr>
+        <tr><td>Mission Deadline</td><td>CHRISTMAS PARTY 2026</td></tr>
+        <tr><td>Threat Assessment</td><td class="hl">HIGH RISK OF RECEIVING SOCKS</td></tr>
+        <tr><td>Mission Success Criteria</td><td>ONE HAPPY RECIPIENT</td></tr>
+      </table>
+
+      <section class="brief">
+        <h2 class="typewriter">Your mission, should you choose to accept it...</h2>
+        <p class="fade d1">You have been assigned a highly confidential Christmas operation. Intelligence reports indicate that the individual concerned has identified <b>three</b> potential gift acquisitions.</p>
+        <p class="fade d2">Your task is to review the classified wishlist, select your preferred target, and execute the acquisition before the Christmas deadline.</p>
+        <p class="fade d3">Proceed with caution. Your generosity will be remembered.</p>
+        <p class="fade d4"><em>This message will not self-destruct. But please do not leave it lying around the pantry.</em></p>
+      </section>
+
+      
+      <button id="accessBtn" class="btn pulse" type="button">[ Access Classified Files ]</button>
+
+      <div class="disclaimer">
+        <p><b>BUDGET ADVISORY:</b> PLEASE CONSULT YOUR 13TH-MONTH PAY BEFORE PROCEEDING.</p>
+        <p>All gift acquisitions are subject to budget availability, market conditions, and the financial capacity of the assigned operative.</p>
+        <p>Unauthorized distribution of this document is strictly prohibited. </p>
+      </div>
+      <div style="margin-top:16px"><button id="deskBtn" class="btn ghost" type="button">◄ Back to the Desk</button></div>
+      <div class="footer-note">CLASSIFIED — CHRISTMAS INTELLIGENCE AGENCY • 2026 CHRISTMAS OPERATIONS DIVISION</div>
+    </div>
+  </main>
+
+  <!-- ============ WISHLIST ============ -->
+  <main id="files" class="view" hidden>
+    <div class="doc">
+      <div class="topbar">
+        <span>DOC NO. CW-2026-001-A</span>
+        <span>CLEARANCE: LEVEL ✱ GIFT</span>
+      </div>
+      <div class="banner">CLASSIFIED — MISSION TARGETS</div>
+
+      <h1><span class="ts">TOP SECRET</span>Mission Targets</h1>
+      <div class="docno">THREE (3) TARGETS IDENTIFIED • SELECT ONE • EXECUTE</div>
+
+      <div class="stat">
+        <span>Status: Awaiting Procurement</span>
+        <span>Deadline: Christmas Party 2026</span>
+        <span>Success: One Happy Recipient</span>
+      </div>
+
+      <div class="notice">
+        <div class="notice-head">⚠️ NOTICE TO ALL ASSIGNED OPERATIVES</div>
+        <div class="notice-body"><p><b>BUDGETARY RESTRICTION NOTICE:</b> Maximum authorized procurement budget: <b>₱500.00</b>. Any amount exceeding the approved ceiling shall be shouldered by the recipient. Please do not bankrupt the assigned operative. We appreciate your generosity, but we also respect your financial survival.</p></div>
+      </div>
+
+      <div class="targets" id="targets"></div>
+
+      <p class="disclaimer">
+        <b>FIELD NOTE:</b> Choose only one target unless you are feeling heroic. Operatives who go above and beyond will be remembered in the Annals of Generosity.
+        Keep your purchase a secret from <span class="redact" tabindex="0" role="button" aria-label="Redacted. Tap to reveal.">THE GIFT RECIPIENT</span>.
+      </p>
+
+      <div style="margin-top:20px">
+        <button id="backBtn" class="btn ghost" type="button">◄ Return to Briefing</button>
+      </div>
+      <div class="footer-note">END OF FILE • CLASSIFIED — CHRISTMAS INTELLIGENCE AGENCY</div>
+    </div>
+  </main>
+
+</div>
+
+<script>
+/* =====================================================================
+   ★★★  EDIT ONLY THIS BLOCK TO CHANGE THE WISHLIST  ★★★
+
+   For each target fill in:
+     name  : product name
+     desc  : short description (leave "" to hide)
+     specs : list of [label, value] pairs shown as a SPECIFICATIONS table,
+             e.g. [["Color","Black"],["Size","Medium"]]
+             (add or remove rows freely; use [] to hide the table)
+     price : estimated price, e.g. "₱500" (leave "" to hide)
+     link  : full shopping link (leave "" to show "LINK PENDING")
+     image : image path or URL, e.g. "images/target1.jpg"
+             (leave "" to show a "PHOTO REDACTED" placeholder)
+   ===================================================================== */
+const WISHLIST = [
+  {
+    name:  "OPERATION: IRON GRIP",
+        desc: "Purchase of this item is hereby justified under the category of Personal Protective Equipment (PPE). This request is considered necessary, reasonable, and highly beneficial to the continued existence of the operative's hands. Failure to procure the correct specifications may compromise mission effectiveness.",
+    specs: [["Color","Black/Red"], ["Size","XL"], ["Variant","Standard"]],
+    price: "₱400.00-₱500.00",
+    link:  "https://ph.shp.ee/XXYtt78C",
+    image: "https://down-ph.img.susercontent.com/file/sg-11134201-22120-84btootk3qkvad.webp"
+  },
+  {
+    name:  "OPERATION: CLOUD WALKER",
+    desc:  "A specialized ground-mobility enhancement device designed to elevate the operative's comfort and physical stature. Its oversized cushioning system is intended to provide maximum comfort while maintaining an intimidating ground presence.",
+    specs: [["Color","White/Cream/Black"], ["Size","42-43"], ["Variant","Standard"]],
+    price: "₱500.00",
+    link:  "https://s.lazada.com.ph/s.ZF1oD4?t=p-i5nYpgo-sYaR378",
+    image: "https://img.lazcdn.com/g/ff/kf/Sec03259f3dbe4ed08c9c1d6b29a805dar.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    name:  "OPERATION: SURPRISE ME",
+    desc:  "The operative has no specific procurement request for this assignment. The assigned personnel are granted full creative authority to select any gift they deem suitable. Any item, regardless of its nature, shall be received with appreciation and gratitude.",
+    specs: [["Color","Surprise Me"], ["Size","Surprise Me"], ["Variant","Surprise me nganiiii haha"]],
+    price: "₱500.00",
+    link:  "https://shopee.ph/",
+    image: "https://images.openai.com/static-rsc-4/ri9Nv5bkVVlE23TELiTlKqXTbYuvXIvCf6tGu3DtzEMBzXfyEfKT0nEjyuodPg9cE5YkLNlFf2Xx-qvtcNws5RWj_OLNlTHZK6X0aFSTWZu9jLnNa_yhLRzP6pD58sxboLLWrH7TL90QQ6zofx6titGJnlSU1vvG4VzM7bAklnf8ft0nbKVsEsbZ8vd62Su8?purpose=fullsize"
+  }
+];
+/* ============================ END OF EDIT BLOCK ===================== */
+
+const LABELS = [
+  { id:"TARGET 001", text:"HIGH PRIORITY",      cls:"p1" },
+  { id:"TARGET 002", text:"ALTERNATIVE OPTION", cls:"p2" },
+  { id:"TARGET 003", text:"BACKUP ACQUISITION", cls:"p3" }
+];
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---- optional real cover photo: put your image at images/cover.jpg ---- */
+(function(){
+  const probe = new Image();
+  probe.onload = () => {
+    const c = $('#cover');
+    c.style.backgroundImage = 'url("images/cover.jpg")';
+    c.classList.add('photo');
+  };
+  probe.src = 'images/cover.jpg';
+})();
+
+/* ---- build cards ---- */
+function renderTargets(){
+  $('#targets').innerHTML = WISHLIST.slice(0,3).map((it,i) => {
+    const L = LABELS[i];
+    const img = it.image
+      ? `<img src="${esc(it.image)}" alt="${esc(it.name)}" loading="lazy">`
+      : `<div class="ph">[ PHOTO REDACTED ]</div>`;
+    const desc  = it.desc  ? `<p class="desc">${esc(it.desc)}</p>` : '';
+    const specs = (it.specs && it.specs.length)
+      ? `<div class="specs"><div class="specs-title">Specifications</div><table>${
+          it.specs.map(s => `<tr><td>${esc(s[0])}</td><td>${esc(s[1])}</td></tr>`).join('')
+        }</table></div>`
+      : '';
+    const price = it.price ? `<div class="price">ESTIMATED COST: <b>${esc(it.price)}</b></div>` : '';
+    const btn = it.link
+      ? `<a class="btn red" href="${esc(it.link)}" target="_blank" rel="noopener noreferrer">[ Acquire Target ]</a>`
+      : `<a class="btn" aria-disabled="true">Link Pending Declassification</a>`;
+    return `
+      <article class="card" style="animation-delay:${0.15 + i*0.2}s">
+        <div class="card-head">
+          <span class="tid">${L.id}</span>
+          <span class="prio ${L.cls}">${L.text}</span>
+        </div>
+        <div class="imgbox">${img}<span class="photo-tag">EXHIBIT ${String.fromCharCode(65+i)}</span></div>
+        <h3>${esc(it.name)}</h3>
+        ${desc}${specs}${price}${btn}
+      </article>`;
+  }).join('');
+}
+
+/* ---- routing: (none)=cover, #briefing, #files ---- */
+function route(){
+  const h = location.hash;
+  const v = h === '#files' ? 'files' : h === '#briefing' ? 'landing' : 'cover';
+  $('#cover').hidden   = v !== 'cover';
+  $('#landing').hidden = v !== 'landing';
+  $('#files').hidden   = v !== 'files';
+  document.body.style.overflow = v === 'cover' ? 'hidden' : '';
+  if (v === 'cover') $('#cover').classList.remove('opening');
+  window.scrollTo({top:0});
+}
+window.addEventListener('hashchange', route);
+
+/* ---- open the folder ---- */
+function openFolder(){
+  const c = $('#cover');
+  if (c.classList.contains('opening')) return;
+  if (reduce){ location.hash = '#briefing'; return; }
+  c.classList.add('opening');
+  setTimeout(() => { location.hash = '#briefing'; }, 750);
+}
+$('#cover').addEventListener('click', openFolder);
+$('#cover').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openFolder(); }
+});
+
+/* ---- access sequence ---- */
+$('#accessBtn').addEventListener('click', () => {
+  const scan = $('#scan');
+  if (reduce){ location.hash = '#files'; return; }
+  scan.className = 'on';
+  $('#scanLine1').textContent = 'VERIFYING CLEARANCE...';
+  $('#scanLine2').textContent = 'SCANNING FOR NAUGHTY LIST CONFLICTS...';
+  requestAnimationFrame(() => requestAnimationFrame(() => scan.classList.add('go')));
+  setTimeout(() => {
+    $('#scanLine1').textContent = 'IDENTITY CONFIRMED: SUPER-SECRET SANTA';
+    $('#scanLine2').textContent = 'DECRYPTING WISHLIST...';
+    scan.classList.add('done');
+  }, 1500);
+  setTimeout(() => { location.hash = '#files'; scan.className = ''; }, 2400);
+});
+$('#backBtn').addEventListener('click', () => { location.hash = '#briefing'; });
+$('#deskBtn').addEventListener('click', () => { location.hash = ''; route(); });
+
+/* ---- redactions ---- */
+document.addEventListener('click', e => {
+  const r = e.target.closest('.redact');
+  if (r) r.classList.toggle('open');
+});
+document.addEventListener('keydown', e => {
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('redact')){
+    e.preventDefault(); e.target.classList.toggle('open');
+  }
+});
+$('#identity').addEventListener('click', function(){
+  /* this runs before the shared toggle above, so "not open yet" means it is about to open */
+  this.textContent = this.classList.contains('open') ? '████████████' : 'CHRISTIAN GEORGE TORNEA';
+});
+
+renderTargets();
+route();
+</script>
+</body>
+</html>
