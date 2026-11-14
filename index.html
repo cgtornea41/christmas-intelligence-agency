@@ -317,6 +317,28 @@
     width:38%;font-weight:700;text-transform:uppercase;font-size:.74rem;letter-spacing:.06em;color:#5a3b1c;
   }
 
+  /* background music toggle */
+  .music{
+    position:fixed;z-index:120;
+    top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));
+    display:flex;align-items:center;gap:6px;min-height:40px;
+    padding:6px 12px 6px 10px;border-radius:999px;cursor:pointer;
+    background:rgba(14,7,4,.72);color:#f3d89a;border:1px solid var(--brass);
+    font-family:'Special Elite',monospace;font-size:.7rem;letter-spacing:.12em;
+    -webkit-tap-highlight-color:transparent;
+    backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+    transition:background .2s,color .2s,border-color .2s;
+  }
+  .music:hover{background:rgba(40,22,12,.85)}
+  .music svg{width:20px;height:20px;flex:none}
+  .music .waves{opacity:0;transition:opacity .2s}
+  .music .mute{opacity:1;transition:opacity .2s}
+  .music.on .waves{opacity:1}
+  .music.on .mute{opacity:0}
+  .music.on{animation:musicGlow 2.4s ease-in-out infinite}
+  .music:not(.on){color:#b9a173;border-color:#6e5b43}
+  @keyframes musicGlow{0%,100%{box-shadow:0 0 0 0 rgba(243,216,154,.0)}50%{box-shadow:0 0 10px 2px rgba(243,216,154,.35)}}
+
   /* access overlay */
   #scan{
     position:fixed;inset:0;z-index:100;background:rgba(14,7,4,.95);
@@ -355,6 +377,17 @@
     <path id="arcB" d="M 14,60 A 46,46 0 0 0 106,60"/>
   </defs>
 </svg>
+
+<!-- background music (original instrumental loop made for this site) -->
+<audio id="bgm" src="audio/spy-theme.mp3" loop preload="none" playsinline></audio>
+<button id="musicBtn" class="music" type="button" aria-pressed="false" aria-label="Turn background music on" title="Background music">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/>
+    <g class="waves"><path d="M15.5 9a4.2 4.2 0 0 1 0 6"/><path d="M18.2 6.5a8 8 0 0 1 0 11"/></g>
+    <g class="mute"><path d="M16 9.5l5 5"/><path d="M21 9.5l-5 5"/></g>
+  </svg>
+  <span id="musicLabel">OFF</span>
+</button>
 
 <!-- ============ COVER (shown first) ============ -->
 <section id="cover" class="view" role="button" tabindex="0" aria-label="Tap to open the classified file">
@@ -523,7 +556,7 @@
 
       <p class="disclaimer">
         <b>FIELD NOTE:</b> Choose only one target unless you are feeling heroic. Operatives who go above and beyond will be remembered in the Annals of Generosity.
-        Keep your purchase a secret from <span class="redact" tabindex="0" role="button" aria-label="Redacted. Tap to reveal.">CHRISTIAN GEORGE L. TORNEA</span>.
+        Keep your purchase a secret from <span class="redact" tabindex="0" role="button" aria-label="Redacted. Tap to reveal.">THE GIFT RECIPIENT</span>.
       </p>
 
       <div style="margin-top:20px">
@@ -658,6 +691,7 @@ $('#cover').addEventListener('keydown', e => {
 /* ---- access sequence ---- */
 $('#accessBtn').addEventListener('click', () => {
   const scan = $('#scan');
+  if (!userMuted && bgm.paused) startMusic();   /* music starts when Access is clicked */
   if (reduce){ location.hash = '#files'; return; }
   scan.className = 'on';
   $('#scanLine1').textContent = 'VERIFYING CLEARANCE...';
@@ -687,6 +721,81 @@ $('#identity').addEventListener('click', function(){
   /* this runs before the shared toggle above, so "not open yet" means it is about to open */
   this.textContent = this.classList.contains('open') ? '████████████' : 'CHRISTIAN GEORGE TORNEA';
 });
+
+/* ---- background music ---- */
+const bgm = $('#bgm');
+const musicBtn = $('#musicBtn');
+const MUSIC_VOLUME = 0.7;       /* track is already mixed quiet; iPhones ignore this and follow the device volume */
+let musicOn = false;            /* is it actually playing */
+let userMuted = false;          /* did the visitor switch it off themselves */
+let fadeTimer = null;
+
+function paintMusic(){
+  musicBtn.classList.toggle('on', musicOn);
+  musicBtn.setAttribute('aria-pressed', String(musicOn));
+  musicBtn.setAttribute('aria-label', musicOn ? 'Turn background music off' : 'Turn background music on');
+  $('#musicLabel').textContent = musicOn ? 'ON' : 'OFF';
+}
+function primeMusic(){            /* start downloading early so it begins instantly on click */
+  if (bgm.preload !== 'auto'){ bgm.preload = 'auto'; try{ bgm.load(); }catch(e){} }
+}
+function fadeTo(target, ms, done){
+  clearInterval(fadeTimer);
+  const from = bgm.volume, steps = Math.max(1, Math.round(ms/50));
+  let i = 0;
+  fadeTimer = setInterval(() => {
+    i++;
+    try{ bgm.volume = Math.min(1, Math.max(0, from + (target-from)*i/steps)); }catch(e){}
+    if (i >= steps){ clearInterval(fadeTimer); if (done) done(); }
+  }, 50);
+}
+let starting = false;
+function startMusic(){
+  if (starting) return Promise.resolve();
+  starting = true;
+  try{ bgm.volume = 0; }catch(e){}
+  const ok = () => { starting = false; musicOn = true; paintMusic(); fadeTo(MUSIC_VOLUME, 1800); };
+  const fail = () => { starting = false; musicOn = false; paintMusic(); };
+  let p;
+  try{ p = bgm.play(); }catch(e){ fail(); return Promise.resolve(); }
+  if (p && p.then) return p.then(ok, fail);
+  ok(); return Promise.resolve();
+}
+function stopMusic(){
+  musicOn = false; paintMusic();
+  fadeTo(0, 350, () => bgm.pause());
+}
+musicBtn.addEventListener('click', e => {
+  e.stopPropagation();           /* don't trigger the cover's tap-to-open */
+  if (musicOn){ userMuted = true; stopMusic(); }
+  else { userMuted = false; primeMusic(); startMusic(); }
+});
+/* keep the toggle's keyboard presses from opening the folder underneath */
+musicBtn.addEventListener('keydown', e => e.stopPropagation());
+/* pause while the tab is hidden, resume when the visitor comes back */
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden){ if (musicOn) bgm.pause(); }
+  else if (musicOn && bgm.paused){ bgm.play().catch(() => { musicOn = false; paintMusic(); }); }
+});
+$('#cover').addEventListener('click', primeMusic);
+window.addEventListener('hashchange', () => { if (location.hash) primeMusic(); });
+paintMusic();
+
+/* ---- auto-start: try as soon as the site opens ----
+   Browsers only allow sound before any interaction in some cases, so if the
+   first attempt is blocked we start on the visitor's very first tap/click/key. */
+const GESTURES = ['pointerup','touchend','click','keydown'];
+function onFirstGesture(e){
+  if (e.target.closest && e.target.closest('#musicBtn')) return;   /* the toggle handles itself */
+  if (userMuted || musicOn){ disarmAutoStart(); return; }
+  primeMusic();
+  startMusic().then(() => { if (musicOn) disarmAutoStart(); });
+}
+function armAutoStart(){ GESTURES.forEach(g => document.addEventListener(g, onFirstGesture, true)); }
+function disarmAutoStart(){ GESTURES.forEach(g => document.removeEventListener(g, onFirstGesture, true)); }
+
+primeMusic();
+startMusic().then(() => { if (!musicOn) armAutoStart(); });
 
 renderTargets();
 route();
